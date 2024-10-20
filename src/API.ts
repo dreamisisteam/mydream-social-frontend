@@ -23,6 +23,7 @@ axiosInstance.interceptors.response.use(
 	},
 	(error) => {
 		if (error.response.status === 401) {
+			localStorage.removeItem('login')
 			window.location.href = '/auth';
 		}
 		console.log(error);

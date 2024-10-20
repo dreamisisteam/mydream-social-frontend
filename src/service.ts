@@ -31,6 +31,7 @@ export interface IProfile {
 	name: string;
 	surname: string;
 	interests: IInterests;
+	avatar_url: string | null;
 }
 
 export const registerUser = async (data: IRegisterData) => {
@@ -43,4 +44,8 @@ export const loginUser = async (data: ILogin) => {
 
 export const getUser = async (userName: string) => {
 	return axiosInstance.get(`/users/${userName}`);
+};
+
+export const getRecommendations = async () => {
+	return axiosInstance.get(`/recommendations`);
 };

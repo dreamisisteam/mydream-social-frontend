@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import cx from "clsx";
 import styles from "./styles.module.css";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import { getUser, IProfile } from "../../../service";
 
 interface IProfileInfo {
@@ -30,7 +30,7 @@ export default function ProfileInfo({ my, username }: IProfileInfo) {
 				<div className={cx(styles.contacts)}>
 					<img
 						className={cx(styles.avatar, "rounded-circle mb-3")}
-						src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+						src={profile?.avatar_url ? profile?.avatar_url : "/img/stub.jpg"}
 						alt="avatar"
 					/>
 					<div className="mb-2">
@@ -43,12 +43,6 @@ export default function ProfileInfo({ my, username }: IProfileInfo) {
 							{profile.telegram_link}
 						</a>
 					</div>
-					{/* {!my && (
-						<Button variant="outline-primary me-2">
-							<i className="bi bi-person-add me-2"></i>
-							<span>Добавить в друзья</span>
-						</Button>
-					)} */}
 				</div>
 				<div className={styles.interests}>
 					<h4 className="mb-5">{my ? "Мои интересы" : "Интересуется"}</h4>

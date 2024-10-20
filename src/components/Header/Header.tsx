@@ -14,7 +14,7 @@ export default function Header() {
 			try {
 				const res = await getUser(login);
 				if (res.data) {
-					setUserInfo(res.data.name + " " + res.data.surname);
+					setUserInfo(res.data);
 				}
 			} catch (e) {
 				console.log(e);
@@ -46,12 +46,12 @@ export default function Header() {
 				<div className="text-end">
 					<Link to="/profile" className="text-decoration-none link-dark">
 						<img
-							src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+							src={userInfo?.avatar_url ? userInfo?.avatar_url : "/img/stub.jpg"}
 							alt="avatar"
 							className={cx("rounded-circle me-2", styles.avatar)}
 						/>
 						<span className="me-4">
-							{userInfo ? userInfo : "Aнонимный пользователь"}
+							{userInfo ? userInfo.name + ' ' + userInfo.surname : "Aнонимный пользователь"}
 						</span>
 					</Link>
 					<Button variant="outline-primary" onClick={logout}>
