@@ -10,6 +10,7 @@ interface IRecommendedUser {
 	name: string;
 	surname: string;
 	avatar_url: string | null;
+	rating: string;
 }
 
 export default function HomePage() {

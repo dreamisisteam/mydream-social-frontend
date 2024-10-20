@@ -22,8 +22,13 @@ export default function LoginForm({ setType }: ILoginForm) {
 		const form = e.currentTarget;
 		if (form.checkValidity()) {
 			const formData = new FormData(e.target);
-			const formDataObj = Object.fromEntries(formData.entries());
+			let formDataObj = Object.fromEntries(formData.entries());
 			console.log("formData", formDataObj);
+			formDataObj = {
+				...formDataObj,
+				//@ts-ignore
+				username: formDataObj?.username?.replace(/\s/g, ""),
+			}
 			try {
 				const res = await loginUser(formDataObj as unknown as ILogin);
 				if (res.data) {

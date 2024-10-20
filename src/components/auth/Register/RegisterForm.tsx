@@ -43,8 +43,10 @@ export default function RegisterForm({ setType }: IRegisterForm) {
 			}
 			const payload = {
 				...generalInfo,
+				username: generalInfo?.username?.replace(/\s/g, ""),
 				interests: interests,
 			};
+			console.log(payload)
 			try {
 				const res = await registerUser(payload as IRegisterData);
 				if (res.status === 204) {
@@ -53,7 +55,6 @@ export default function RegisterForm({ setType }: IRegisterForm) {
 			} catch (e) {
 				console.log(e);
 			}
-			console.log("payload", payload);
 		}
 		setValidated(true);
 	};

@@ -9,6 +9,7 @@ interface IPersonCardProps {
 		name: string;
 		surname: string;
 		avatar_url: string | null;
+		rating: string;
 	};
 }
 
@@ -24,6 +25,9 @@ export default function PersonCard({ person }: IPersonCardProps) {
 				<Card.Title>{person.username}</Card.Title>
 				<Card.Text>
 					{person.name} {person.surname}
+				</Card.Text>
+				<Card.Text>
+					Совместимость: {person.rating}
 				</Card.Text>
 				<Button
 					className="w-100"

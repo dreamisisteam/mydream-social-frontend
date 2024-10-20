@@ -32,6 +32,7 @@ export interface IProfile {
 	surname: string;
 	interests: IInterests;
 	avatar_url: string | null;
+	rating: string;
 }
 
 export const registerUser = async (data: IRegisterData) => {
