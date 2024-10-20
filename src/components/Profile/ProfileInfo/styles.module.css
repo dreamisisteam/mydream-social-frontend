@@ -1,0 +1,49 @@
+.info {
+	display: flex;
+	flex-grow: 1;
+}
+
+.contacts {
+	width: 300px;
+	min-width: 300px;
+	padding-right: 32px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-right: 1px solid #dee2e6;
+}
+
+.avatar {
+	width: 200px;
+	height: 200px;
+}
+
+.interests {
+	flex-grow: 1;
+	margin-left: 120px;
+}
+
+.row {
+	--bs-gutter-y: 2rem !important;
+}
+
+@media (max-width: 991.9px) {
+	.info {
+		display: block;
+	}
+	.interests {
+		margin-left: 0;
+	}
+
+	.contacts {
+		width: 100%;
+		min-width: unset;
+		padding-right: 0;
+		border: unset;
+		align-items: center;
+	}
+	.avatar {
+		width: 100px;
+		height: 100px;
+	}
+}

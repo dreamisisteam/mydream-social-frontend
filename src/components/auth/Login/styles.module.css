@@ -1,0 +1,22 @@
+.form {
+	max-width: 400px;
+}
+
+.password {
+	border-top-right-radius: 0.375rem !important;
+	border-bottom-right-radius: 0.375rem !important;
+}
+
+.password svg {
+	width: 24px;
+	height: 24px;
+	transition-duration: 0.3s;
+}
+
+.password path {
+	fill: var(--bs-btn-color);
+}
+
+.password:hover path {
+	fill: var(--bs-btn-hover-color);
+}

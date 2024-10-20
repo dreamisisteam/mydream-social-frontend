@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+import { createContext } from "react";
+
+const defaultValue = {
+	name: "",
+	surname: "",
+};
+
+export const TestContext = createContext(defaultValue);
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const context = {
+		name: "Ellen",
+		surname: "Doe",
+	};
+
+	return (
+		<div className="main">
+			<div className="container">
+				<TestContext.Provider value={context}>
+					<RouterProvider router={router} />
+				</TestContext.Provider>
+			</div>
+		</div>
+	);
 }
 
 export default App;
